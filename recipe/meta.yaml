@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - python
+    - pip
     - setuptools
     - wheel
   run:
