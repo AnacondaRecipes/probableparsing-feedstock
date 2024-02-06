@@ -34,7 +34,7 @@ about:
   home: https://github.com/datamade/probableparsing
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_url: https://raw.githubusercontent.com/datamade/probableparsing/master/LICENSE
   summary: Common methods for probable parsing
   description: Common methods for probable parsing
   doc_url: https://github.com/datamade/probableparsing
