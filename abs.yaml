@@ -1,0 +1,7 @@
+# upload_channels:
+#   - sfe1ed40
+
+channels:
+  lp_test: snowflake
+
+upload_without_merge: True
