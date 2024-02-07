@@ -1,40 +1,45 @@
 {% set name = "probableparsing" %}
 {% set version = "0.0.1" %}
-{% set hashtype = "md5" %}
-{% set hash = "960a1fab176276070111f1f9b2080cca" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  {{ hashtype }}: {{ hash }}
+  sha256: 8114bbf889e1f9456fe35946454c96e42a6ee2673a90d4f1f9c46a406f543767
 
 build:
-    noarch: python
-    number: 1000
-    script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1000
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv 
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - future
-    run:
-        - python
-        - future
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+  run:
+    - python
+
 test:
-    imports:
-        - probableparsing
+  imports:
+    - probableparsing
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
-    home: https://github.com/datamade/probableparsing
-    license: MIT
-    license_family: MIT
-    summary: Common methods for probable parsing
+  home: https://github.com/datamade/probableparsing
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Common methods for probable parsing
+  description: Common methods for probable parsing
+  doc_url: https://github.com/datamade/probableparsing
+  dev_url: https://github.com/datamade/probableparsing
 
 extra:
-    recipe-maintainers:
-        - wyseguy7
+  recipe-maintainers:
+    - wyseguy7
